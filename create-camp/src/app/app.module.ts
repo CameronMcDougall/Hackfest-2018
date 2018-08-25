@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {SearchFilterPipe} from './pipes/search-filter.pipe';
 import { AgmCoreModule } from '@agm/core';
+import {MatSelectModule,MatOptionModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8'
     })
