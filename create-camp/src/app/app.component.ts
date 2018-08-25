@@ -7,19 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'app';
-  cities: string[] = ['Lowry Bay', 'Seatoun', 'Pipitea', 'Te Aro', 'Mirimar','Lyall Bay'] ;
+  cities: string[] = ['lowry bay', 'seatoun', 'pipitea', 'te aro', 'mirimar','lyall bay'] ;
   results: string[] =[]; 
-  getSearchMatches(text: string){
-    console.log("ENTERED");
+  search: string = "";
     
-    var contains =[];
-    this.cities.forEach(element => {
-      if(this.cities.includes(text)){
-          contains.push(element);
-      }
-    });
-    return contains;
-  } 
 
 
 

@@ -3,9 +3,10 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <input #box type = "text" ng-model = "searchbar" (onInput) = "getSearchMatches(input)">
-  <li *ngFor = "let city of results">
-    {{city}}
+  <input  type = "text" [(ngModel)]="searchTerm" >
+  <!-- <select  [(ngModel)]="value"> </select> -->
+  <li *ngFor = "let city of results | locationFilter:searchTerm:cities">
+    <button (click)="searchTerm = city">{{city}}</button>
   </li> 
 
   
