@@ -1,23 +1,33 @@
-import { Component } from '@angular/core';
-import { data } from './properties'
+import { Component } from "@angular/core";
+import { data } from "./properties";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title: string = 'app';
+  title: string = "app";
 
-  cities: string[] = ['lowry bay', 'seatoun', 'pipitea', 'te aro', 'mirimar','lyall bay'] ;
+  cities: string[] = [
+    "lowry bay",
+    "seatoun",
+    "pipitea",
+    "te aro",
+    "mirimar",
+    "lyall bay"
+  ];
 
   constructor() {
-    console.log(data)
+    console.log(data);
   }
 
-
- 
-  results: string[] =[]; 
+  results: string[] = [];
   search: string = "";
-    
+  lat: number = -41.2440266;
+  lng: number = 174.6214276;
+
+  getSearchMatches(text: string) {
+    console.log("ENTERED");
+  }
 }
