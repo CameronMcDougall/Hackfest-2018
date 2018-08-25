@@ -15,17 +15,9 @@ export class AppComponent {
     console.log(data)
   }
 
+
+ 
   results: string[] =[]; 
   search: string = "";
     
-
-
-
-
-
-
-
-
-  
-
 }

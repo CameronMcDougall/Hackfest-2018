@@ -1,26 +1,25 @@
-<<<<<<< HEAD
+
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <input  type = "text" [(ngModel)]="searchTerm" >
+
+
+<input  type = "text" [(ngModel)]="searchTerm" >
+
   <!-- <select  [(ngModel)]="value"> </select> -->
   <li *ngFor = "let city of results | locationFilter:searchTerm:cities">
     <button (click)="searchTerm = city">{{city}}</button>
   </li> 
 
+
   
 </div>
 
 
-
-
-
-
-=======
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
 &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
 &markers=color:red%7Clabel:C%7C40.718217,-73.998284
 &key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/>
->>>>>>> 1f16742bde7ba3898803e6676532991d7c60d8c4
+

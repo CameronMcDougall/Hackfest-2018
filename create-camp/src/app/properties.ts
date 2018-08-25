@@ -5225,7 +5225,7 @@ export const data = [
     ],
     "DistrictId": 47,
     "Agency": null
-}
+},
 {
     "ListingId": 1737402785,
     "Title": "Newtown, 2 bedrooms, $450 pw",
