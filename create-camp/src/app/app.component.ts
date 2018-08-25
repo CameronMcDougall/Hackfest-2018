@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { data } from './properties'
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'app';
+
   cities: string[] = ['lowry bay', 'seatoun', 'pipitea', 'te aro', 'mirimar','lyall bay'] ;
+
+  constructor() {
+    console.log(data)
+  }
+
   results: string[] =[]; 
   search: string = "";
     
@@ -16,5 +23,9 @@ export class AppComponent {
 
 
 
+
+
+
+  
 
 }
