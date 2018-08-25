@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { data } from './properties'
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'app';
+  constructor() {
+    console.log(data)
+  }
   cities: string[] = ['Lowry Bay', 'Seatoun', 'Pipitea', 'Te Aro', 'Mirimar','Lyall Bay'] ;
   results: string[] =[]; 
   getSearchMatches(text: string){
