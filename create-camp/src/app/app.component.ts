@@ -25,8 +25,8 @@ export class AppComponent {
     this.parseData();
   }
 
-  results: string[] = [];
-  search: string = "";
+  
+  selectedOption: string;
   lat: number = -41.2440266;
   lng: number = 174.6214276;
 
