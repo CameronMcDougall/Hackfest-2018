@@ -11,13 +11,13 @@ export class AppComponent {
 
   cities: string[] = ['lowry bay', 'seatoun', 'pipitea', 'te aro', 'mirimar','lyall bay'] ;
 
-  constructor() {
+  constructor( ) {
     console.log(data)
   }
 
 
  
-  results: string[] =[]; 
-  search: string = "";
+  
+  selected: string = "";
     
 }
