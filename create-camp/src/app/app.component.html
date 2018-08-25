@@ -1,4 +1,10 @@
+<input type="text" [(ngModel)]="searchTerm">
+<!-- <select  [(ngModel)]="value"> </select> -->
+<li *ngFor="let city of results | locationFilter:searchTerm:cities">
+  <button (click)="searchTerm = city">{{city}}</button>
+</li>
 
+<<<<<<< HEAD
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
@@ -22,7 +28,14 @@
       </mat-select>
 </div>
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
+=======
+<!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
+>>>>>>> a2adcf50cfcaace7a8933f1043eaa96df91a5269
 &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
 &markers=color:red%7Clabel:C%7C40.718217,-73.998284
-&key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/>
+&key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/> -->
 
+<agm-map [latitude]="lat" [longitude]="lng">
+  <!-- ngFor -->
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
