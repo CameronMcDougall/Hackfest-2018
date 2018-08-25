@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'app';
   cities: string[] = ['Lowry Bay', 'Seatoun', 'Pipitea', 'Te Aro', 'Mirimar','Lyall Bay'] ;
-  
+  results: string[] =[]; 
   getSearchMatches(text: string){
+    console.log("ENTERED");
+    
     var contains =[];
     this.cities.forEach(element => {
       if(this.cities.includes(text)){
@@ -18,6 +20,9 @@ export class AppComponent {
     });
     return contains;
   } 
+
+
+
 
 
 
