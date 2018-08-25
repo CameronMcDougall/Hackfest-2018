@@ -23,11 +23,5 @@ export class AppComponent {
       }
     });
     return contains;
-  } 
-
-
-
-
-
-
+  }
 }
