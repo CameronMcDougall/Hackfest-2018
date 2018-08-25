@@ -8,9 +8,6 @@ import { data } from './properties'
 })
 export class AppComponent {
   title: string = 'app';
-  constructor() {
-    console.log(data)
-  }
   cities: string[] = ['Lowry Bay', 'Seatoun', 'Pipitea', 'Te Aro', 'Mirimar','Lyall Bay'] ;
   results: string[] =[]; 
   getSearchMatches(text: string){
