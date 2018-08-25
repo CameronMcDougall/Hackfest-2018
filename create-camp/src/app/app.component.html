@@ -10,6 +10,7 @@
 &key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/> -->
 
 <agm-map [latitude]="lat" [longitude]="lng">
-  <!-- ngFor -->
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <div *ngFor="let property of this.properties">
+    <agm-marker [latitude]=property.latitude [longitude]=property.longitude></agm-marker>
+  </div>
 </agm-map>
