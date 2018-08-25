@@ -1,12 +1,12 @@
 <div>
-    <mat-select   [(ngModel)]="selectedOption" >
+  <mat-select [(ngModel)]="selectedOption">
 
-        <!-- <select  [(ngModel)]="value"> </select> -->
-        <mat-option *ngFor = "let city of cities">
-        {{city}}
-      </mat-option>
-        
-      </mat-select>
+    <!-- <select  [(ngModel)]="value"> </select> -->
+    <mat-option *ngFor="let city of cities">
+      {{city}}
+    </mat-option>
+
+  </mat-select>
 </div>
 
 <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
@@ -16,6 +16,13 @@
 
 <agm-map [latitude]="lat" [longitude]="lng">
   <div *ngFor="let property of this.properties">
-    <agm-marker [latitude]=property.latitude [longitude]=property.longitude></agm-marker>
+    <!-- <agm-info-window latitude=property.latitude longitude=property.longitude isOpen=true>
+      <b>{{property.address}}</b>
+    </agm-info-window> -->
+    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price>
+      <agm-info-window>
+        <b>{{property.address}}</b>
+      </agm-info-window>
+    </agm-marker>
   </div>
 </agm-map>

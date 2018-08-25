@@ -40,7 +40,7 @@ export class AppComponent {
         longitude: element.GeographicLocation.Longitude,
         latitude: element.GeographicLocation.Latitude,
         numBedrooms: element.Bedrooms,
-        price: element.RentPerWeek,
+        price: "$" + String(element.RentPerWeek),
         address: element.Address,
         suburb: element.Suburb
       };

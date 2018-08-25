@@ -2,7 +2,7 @@ export interface Property {
     longitude: number;
     latitude: number;
     numBedrooms: number;
-    price: number;
+    price: string;
     address: string;
     suburb: string;
 }
