@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< Updated upstream
   title: string = 'app';
   cities: string[] = ['Lowry Bay', 'Seatoun', 'Pipitea', 'Te Aro', 'Mirimar','Lyall Bay'] ;
   results: string[] =[]; 
@@ -24,6 +26,9 @@ export class AppComponent {
 
 
 
+=======
+  title = 'app';
+>>>>>>> Stashed changes
 
 
 }
