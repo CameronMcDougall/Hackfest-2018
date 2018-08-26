@@ -1,6 +1,12 @@
 # CreateCamp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+![Map](https://i.imgur.com/m5cdosP.png)
+![Selected House](https://i.imgur.com/ILTfrzR.png)
+![Filters](https://i.imgur.com/UGUVfkb.png)
+
+## About
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1. This project uses TradeMe's data with the google maps API to display available houses to rent in the Wellington CBD region.
 
 ## Development server
 
@@ -26,11 +32,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Libraries to install
-npm install -g @angular/cli
-npm install --save @angular/material
-npm install --save @angular/cdk
-npm install @agm/core
+## Commands to install libraries (Requires Node.js)
+'npm install -g @angular/cli'
+
+'npm install --save @angular/material'
+
+'npm install --save @angular/cdk'
+
+'npm install @agm/core'
 
 
 
