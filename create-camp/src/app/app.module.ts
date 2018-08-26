@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {SearchFilterPipe} from './pipes/search-filter.pipe';
 import { AgmCoreModule } from '@agm/core';
-import {MatSelectModule,MatOptionModule} from '@angular/material';
+import {MatSelectModule,MatOptionModule,MatIconModule, MatButtonModule} from '@angular/material';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -26,6 +26,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonToggleModule,
     MatRadioModule,
     MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"
     })

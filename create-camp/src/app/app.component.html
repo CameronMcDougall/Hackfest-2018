@@ -2,17 +2,23 @@
   <h1>
 
   </h1>
-  <button (click)= "sidenav.toggle()"></button>
+  <button mat-icon-button (click)= "sidenav.toggle()"><mat-icon>menu</mat-icon></button>
 </mat-toolbar>
 <mat-sidenav-container >
-          <mat-sidenav #sidenav mode = "side" [opened]=true>
+          <mat-sidenav #sidenav mode = "side" [opened]=false>
                   <h2>Flat</h2>
-                  <mat-label>Min Price</mat-label> 
+                  <mat-label class="label" >Min Price</mat-label> 
+                  <br> 
                   <mat-slider min="0" max="490" step="10" value="0" (input) = "changeMinSlider($event.value)"></mat-slider>
-                  <mat-label>Max Price</mat-label> 
+                  <br> 
+                  <mat-label class="label">Max Price</mat-label> 
+                  <br>
                   <mat-slider min="0" max="500" step="10" value="500" (input) = "changeMaxSlider($event.value)"></mat-slider>
+                  <br>
                 <mat-label >Number of rooms</mat-label>
+                <br>
                 <mat-button-toggle-group *ngFor = "let n of numOfRooms">
+
                   
                     <mat-button-toggle>
                       <mat-radio-button (click) = "changeRooms(n)">
@@ -28,16 +34,11 @@
           <mat-sidenav-content>
               <agm-map [latitude]="lat" [longitude]="lng">
                   <div *ngFor="let property of this.properties">
-                    <!-- <agm-info-window [latitude]=property.latitude [longitude]=property.longitude [isOpen]=true>
-                      <b>{{property.price}}</b>
-                    </agm-info-window> -->
-                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [zIndex]="200">
-                      <!-- <agm-marker-label> -->
+                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [iconUrl]="'./assets/marker.svg'" [zIndex]="0">
                       <agm-info-window>
                         <p><b>{{property.address}}</b></p>
                         <p>Suburb: {{property.suburb}} <br> Bedrooms: {{property.numBedrooms}}</p>
                       </agm-info-window>
-                    <!-- </agm-marker-label> -->
                     </agm-marker>
                   </div>
                 </agm-map>
