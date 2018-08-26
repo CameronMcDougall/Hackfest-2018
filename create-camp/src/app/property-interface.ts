@@ -5,4 +5,5 @@ export interface Property {
     price: string;
     address: string;
     suburb: string;
+    listingID:string;
 }

@@ -103,7 +103,8 @@ export class AppComponent {
         numBedrooms: element.Bedrooms,
         price: "$" + String(element.RentPerWeek),
         address: element.Address,
-        suburb: element.Suburb
+        suburb: element.Suburb,
+        listingID: "https://www.trademe.co.nz/Browse/Listing.aspx?id="+element.ListingId
       };
       this.properties[this.properties.length] = property;
     });

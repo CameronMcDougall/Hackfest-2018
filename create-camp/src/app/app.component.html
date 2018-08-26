@@ -94,11 +94,13 @@
           [zIndex]="i">
           <agm-info-window>
             <p>
-              <b>{{property.address}}</b>
+              <b><a href="{{property.listingID}}">{{property.address}}</a></b>
             </p>
             <p>Suburb: {{property.suburb}}
               <br> Price: {{property.price}} p/w
-              <br> Bedrooms: {{property.numBedrooms}}</p>
+              <br> Bedrooms: {{property.numBedrooms}}
+          
+          </p>
           </agm-info-window>
         </agm-marker>
       </div>
