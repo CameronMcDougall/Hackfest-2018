@@ -1,21 +1,54 @@
+<mat-toolbar>
+  <h1>
 
-<mat-sidenav-container>
-    <mat-sidenav>Options</mat-sidenav>
-    <mat-sidenav-content>
-      <mat-label>Price</mat-label> 
-      <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  </h1>
+  <button (click)= "sidenav.toggle()"></button>
+</mat-toolbar>
+<mat-sidenav-container >
+          
+          <mat-sidenav #sidenav mode = "side" [opened]=true>
+             
+                  <h2>Flat</h2>
+                  <mat-label>Price</mat-label> 
+                  <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
+                
+               
+                <mat-label>Number of rooms</mat-label>
+                <mat-button-toggle-group *ngFor = "let n of numOfRooms">
+                  
+                    <mat-button-toggle>
+                      <mat-radio-button>
+                        {{n}}
+                      </mat-radio-button>
+                      
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            
+          </mat-sidenav>
 
-    <mat-select   [(ngModel)]="selectedOption" disableOptionCentering >
-
-        <!-- <select  [(ngModel)]="value"> </select> -->
-        <mat-option  *ngFor = "let city of cities" disableOptionCentering [value] = "city" >
-        {{city}}
-      </mat-option>
-    
-      </mat-select>
    
+          <mat-sidenav-content>
+              <agm-map [latitude]="lat" [longitude]="lng">
+
+                  <!-- ngFor -->
+                 
+                
+                
+                  <div *ngFor="let property of this.properties">
+                    <!-- <agm-info-window latitude=property.latitude longitude=property.longitude isOpen=true>
+                      <b>{{property.address}}</b>
+                    </agm-info-window> -->
+                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price>
+                      <agm-info-window>
+                        <b>{{property.address}}</b>
+                      </agm-info-window>
+                    </agm-marker>
+                  </div>
+                </agm-map>
+                
+          </mat-sidenav-content>
+          
+</mat-sidenav-container> 
 
 
 
@@ -26,21 +59,4 @@
 &markers=color:red%7Clabel:C%7C40.718217,-73.998284
 &key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/> -->
 
-<agm-map [latitude]="lat" [longitude]="lng">
-
-  <!-- ngFor -->
- 
-
-
-  <div *ngFor="let property of this.properties">
-    <!-- <agm-info-window latitude=property.latitude longitude=property.longitude isOpen=true>
-      <b>{{property.address}}</b>
-    </agm-info-window> -->
-    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price>
-      <agm-info-window>
-        <b>{{property.address}}</b>
-      </agm-info-window>
-    </agm-marker>
-  </div>
-</agm-map>
 

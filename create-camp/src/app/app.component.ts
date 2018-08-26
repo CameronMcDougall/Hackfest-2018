@@ -10,7 +10,7 @@ import { data } from "./properties";
 export class AppComponent {
   properties: Property[] = [];
   title: string = "app";
-
+  numOfRooms: number[]= [1,2,3,4,5]
   cities: string[] = [
     "lowry bay",
     "seatoun",

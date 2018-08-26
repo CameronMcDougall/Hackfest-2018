@@ -7,11 +7,12 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {SearchFilterPipe} from './pipes/search-filter.pipe';
 import { AgmCoreModule } from '@agm/core';
 import {MatSelectModule,MatOptionModule} from '@angular/material';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [AppComponent, HomePageComponent, SearchFilterPipe],
   imports: [
@@ -22,6 +23,9 @@ import {MatSliderModule} from '@angular/material/slider';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatSliderModule,
+    MatButtonToggleModule,
+    MatRadioModule,
+    MatToolbarModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"
     })
