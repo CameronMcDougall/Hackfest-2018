@@ -12,7 +12,11 @@ export class AppComponent {
   title: string = "app";
   maxPrice: number = 0;
   minPrice: number = 100000;
+  displayMinPrice:number = 0;
+  displayMaxPrice:number = 500;
   numOfRooms: number[]= [1,2,3,4,5]
+  amountOfRooms: number;
+  price: number;
   cities: string[] = [
     "lowry bay",
     "seatoun",
@@ -22,14 +26,27 @@ export class AppComponent {
     "lyall bay"
   ];
 
+  changeMinSlider(value){
+    this.displayMaxPrice = value;
+   
+
+  }
+  changeMaxSlider(value){
+
+    this.displayMaxPrice = value;
+   
+  }
+  changeRooms(value){
+
+    this.maxPrice = value;
+  
+  }
   constructor() {
     //console.log(data);
     this.parseData();
   }
 
-  onSwipe(event){
-    console.log("AAAA");
-  }
+ 
   selectedOption: string;
   lat: number = -41.2440266;
   lng: number = 174.6214276;

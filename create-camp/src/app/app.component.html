@@ -4,43 +4,46 @@
   </h1>
   <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
 </mat-toolbar>
-<mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="side" [opened]=true>
+<mat-sidenav-container >
+          <mat-sidenav #sidenav mode = "side" [opened]=false>
+                  <h2>Flat</h2>
+                  <mat-label class="label" >Min Price</mat-label> 
+                  <br> 
+                  <mat-slider min="0" max="490" step="10" value="0" (input) = "changeMinSlider($event.value)"></mat-slider>
+                  <br> 
+                  <mat-label class="label">Max Price</mat-label> 
+                  <br>
+                  <mat-slider min="0" max="500" step="10" value="500" (input) = "changeMaxSlider($event.value)"></mat-slider>
+                  <br>
+                <mat-label >Number of rooms</mat-label>
+                <br>
+                <mat-button-toggle-group *ngFor = "let n of numOfRooms">
 
-    <h2>Flat</h2>
-    <mat-label class="label">Price</mat-label>
-    <br>
-    <mat-slider class="label" min="1" max="5" step="0.5" value="1.5"></mat-slider>
-    <br>
+                  
+                    <mat-button-toggle>
+                      <mat-radio-button (click) = "changeRooms(n)">
+                        {{n}}
+                      </mat-radio-button>
+                      
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            
+          </mat-sidenav>
 
-    <mat-label class="label">Number of rooms</mat-label>
-    <br>
-    <mat-button-toggle-group class="label" *ngFor="let n of numOfRooms">
-
-      <mat-button-toggle>
-        <mat-radio-button>
-          {{n}}
-        </mat-radio-button>
-
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-
-  </mat-sidenav>
-
-
-  <mat-sidenav-content>
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <div *ngFor="let property of this.properties; let i = index">
-        <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [iconUrl]="'./assets/marker.svg'"
-          [zIndex]="i">
-          <agm-info-window>
-            <p><b>{{property.address}}</b></p>
-            <p>Suburb: {{property.suburb}} <br> Price: {{property.price}} p/w <br> Bedrooms: {{property.numBedrooms}}</p>
-          </agm-info-window>
-        </agm-marker>
-      </div>
-    </agm-map>
-  </mat-sidenav-content>
-
-</mat-sidenav-container>
+   
+          <mat-sidenav-content>
+              <agm-map [latitude]="lat" [longitude]="lng">
+                  <div *ngFor="let property of this.properties; let i = index">
+                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [iconUrl]="'./assets/marker.svg'"
+                      [zIndex]="i">
+                      <agm-info-window>
+                        <p><b>{{property.address}}</b></p>
+                        <p>Suburb: {{property.suburb}} <br> Price: {{property.price}} p/w <br> Bedrooms: {{property.numBedrooms}}</p>
+                      </agm-info-window>
+                    </agm-marker>
+                  </div>
+                </agm-map>
+          </mat-sidenav-content>
+          
+</mat-sidenav-container> 
