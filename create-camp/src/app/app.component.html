@@ -1,3 +1,4 @@
+
 <mat-sidenav-container>
     <mat-sidenav>Options</mat-sidenav>
     <mat-sidenav-content>
@@ -18,14 +19,28 @@
 
 
 
+
+
 <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
 &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
 &markers=color:red%7Clabel:C%7C40.718217,-73.998284
 &key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/> -->
-<div>
+
 <agm-map [latitude]="lat" [longitude]="lng">
+
   <!-- ngFor -->
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+ 
+
+
+  <div *ngFor="let property of this.properties">
+    <!-- <agm-info-window latitude=property.latitude longitude=property.longitude isOpen=true>
+      <b>{{property.address}}</b>
+    </agm-info-window> -->
+    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price>
+      <agm-info-window>
+        <b>{{property.address}}</b>
+      </agm-info-window>
+    </agm-marker>
+  </div>
 </agm-map>
-</div>
 

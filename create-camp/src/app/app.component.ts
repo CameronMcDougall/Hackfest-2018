@@ -1,3 +1,4 @@
+import { Property } from "./property-interface";
 import { Component } from "@angular/core";
 import { data } from "./properties";
 
@@ -7,6 +8,7 @@ import { data } from "./properties";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  properties: Property[] = [];
   title: string = "app";
 
   cities: string[] = [
@@ -19,7 +21,8 @@ export class AppComponent {
   ];
 
   constructor() {
-    console.log(data);
+    //console.log(data);
+    this.parseData();
   }
 
   onSwipe(event){
@@ -31,5 +34,19 @@ export class AppComponent {
 
   getSearchMatches(text: string) {
     console.log("ENTERED");
+  }
+
+  parseData() {
+    data.forEach(element => {
+      const property: Property = {
+        longitude: element.GeographicLocation.Longitude,
+        latitude: element.GeographicLocation.Latitude,
+        numBedrooms: element.Bedrooms,
+        price: "$" + String(element.RentPerWeek),
+        address: element.Address,
+        suburb: element.Suburb
+      };
+      this.properties[this.properties.length] = property;
+    });
   }
 }
