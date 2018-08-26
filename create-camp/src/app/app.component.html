@@ -25,34 +25,20 @@
    
           <mat-sidenav-content>
               <agm-map [latitude]="lat" [longitude]="lng">
-
-                  <!-- ngFor -->
-                 
-                
-                
                   <div *ngFor="let property of this.properties">
-                    <!-- <agm-info-window latitude=property.latitude longitude=property.longitude isOpen=true>
-                      <b>{{property.address}}</b>
+                    <!-- <agm-info-window [latitude]=property.latitude [longitude]=property.longitude [isOpen]=true>
+                      <b>{{property.price}}</b>
                     </agm-info-window> -->
-                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price>
+                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [zIndex]="200">
+                      <!-- <agm-marker-label> -->
                       <agm-info-window>
-                        <b>{{property.address}}</b>
+                        <p><b>{{property.address}}</b></p>
+                        <p>Suburb: {{property.suburb}} <br> Bedrooms: {{property.numBedrooms}}</p>
                       </agm-info-window>
+                    <!-- </agm-marker-label> -->
                     </agm-marker>
                   </div>
                 </agm-map>
-                
           </mat-sidenav-content>
           
 </mat-sidenav-container> 
-
-
-
-
-
-<!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Clabel:C%7C40.718217,-73.998284
-&key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/> -->
-
-
