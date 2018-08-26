@@ -22,7 +22,9 @@ export class AppComponent {
     console.log(data);
   }
 
-  
+  onSwipe(event){
+    console.log("AAAA");
+  }
   selectedOption: string;
   lat: number = -41.2440266;
   lng: number = 174.6214276;
