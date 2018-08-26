@@ -7,6 +7,8 @@ import { SearchFilterPipe } from "./pipes/search-filter.pipe";
 import { AgmCoreModule } from "@agm/core";
 import { MatSelectModule, MatOptionModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
 @NgModule({
   declarations: [AppComponent, HomePageComponent, SearchFilterPipe],
   imports: [
@@ -15,7 +17,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-
+    AgmSnazzyInfoWindowModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"
     })
