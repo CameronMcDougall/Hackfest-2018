@@ -11,6 +11,8 @@ export class AppComponent {
   properties: Property[] = [];
   title: string = "app";
   numOfRooms: number[]= [1,2,3,4,5]
+  amountOfRooms: number;
+  price: number;
   cities: string[] = [
     "lowry bay",
     "seatoun",
@@ -25,9 +27,7 @@ export class AppComponent {
     this.parseData();
   }
 
-  onSwipe(event){
-    console.log("AAAA");
-  }
+ 
   selectedOption: string;
   lat: number = -41.2440266;
   lng: number = 174.6214276;
