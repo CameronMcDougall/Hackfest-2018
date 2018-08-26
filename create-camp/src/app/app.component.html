@@ -6,17 +6,18 @@
 </mat-toolbar>
 
 <mat-sidenav-container >
-          <mat-sidenav #sidenav mode = "side" [opened]=false>
+          <mat-sidenav class="label" #sidenav mode = "side" [opened]=false>
+            <div></div>
                   <h2>Flat</h2>
-                  <mat-label class="label" >Min Price</mat-label> 
+                  <mat-label>Min Price</mat-label> 
                   <br> 
                   <mat-slider min="0" max="490" step="10" value="0" (input) = "changeMinSlider($event.value)"></mat-slider>
                   <br> 
-                  <mat-label class="label">Max Price</mat-label> 
+                  <mat-label>Max Price</mat-label> 
                   <br>
                   <mat-slider min="0" max="500" step="10" value="500" (input) = "changeMaxSlider($event.value)"></mat-slider>
                   <br>
-                <mat-label >Number of rooms</mat-label>
+                <mat-label>Number of rooms</mat-label>
                 <br>
                 <mat-button-toggle-group *ngFor = "let n of numOfRooms">
 
