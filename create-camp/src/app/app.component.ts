@@ -10,6 +10,8 @@ import { data } from "./properties";
 export class AppComponent {
   properties: Property[] = [];
   title: string = "app";
+  maxPrice: number = 0;
+  minPrice: number = 100000;
   numOfRooms: number[]= [1,2,3,4,5]
   cities: string[] = [
     "lowry bay",
@@ -38,6 +40,12 @@ export class AppComponent {
 
   parseData() {
     data.forEach(element => {
+      if (element.RentPerWeek <= this.minPrice) {
+        this.minPrice = element.RentPerWeek;
+      } else if (element.RentPerWeek >= this.maxPrice) {
+        this.maxPrice = element.RentPerWeek;
+      }
+
       const property: Property = {
         longitude: element.GeographicLocation.Longitude,
         latitude: element.GeographicLocation.Latitude,

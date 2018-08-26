@@ -1,4 +1,3 @@
-
 import { BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
@@ -13,6 +12,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatRadioModule} from '@angular/material/radio';
+
 @NgModule({
   declarations: [AppComponent, HomePageComponent, SearchFilterPipe],
   imports: [
