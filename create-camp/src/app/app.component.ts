@@ -18,7 +18,7 @@ export class AppComponent {
   numOfRooms: number[]= [1,2,3,4,5]
   amountOfRooms: number = 1;
   price: number;
-  selectedSuburb:string;
+  selectedSuburb:string = "All";
   cities: string[] = [];
 
   changeMinSlider(value){
@@ -63,7 +63,6 @@ export class AppComponent {
         }
       
     });
-    console.log(this.displayProperties.length);
   }
   changedSuburb(){
     this.findProperties();
@@ -90,11 +89,6 @@ export class AppComponent {
   selectedOption: string;
   lat: number = -41.2440266;
   lng: number = 174.6214276;
-
-  getSearchMatches(text: string) {
-    console.log("ENTERED");
-  }
-
   parseData() {
     data.forEach(element => {
       if (element.RentPerWeek <= this.minPrice) {

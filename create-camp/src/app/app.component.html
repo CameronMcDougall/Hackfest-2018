@@ -2,59 +2,107 @@
   <h1>
 
   </h1>
-  <button mat-icon-button (click)= "sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
-<mat-sidenav-container >
-          <mat-sidenav #sidenav mode = "side" [opened]=false>
 
-                  <h2>Flat</h2>
-                  <mat-form-field>
-                    <mat-label> Suburbs</mat-label>
-                      <mat-select [(ngModel)] = "this.selectedSuburb" (input) = "changeSuburb()"  >
-                  
-                          
-                          <mat-option *ngFor = "let city of cities" (click) = "print()" [value]="city" >
-                          {{city}}
-                        </mat-option>
-                          
-                        </mat-select>
-                      </mat-form-field>
-                      <br>
-                  <mat-label class="label" >Min Price</mat-label> 
-                  <br> 
-                  <mat-slider min="{{this.minPrice}}" max="{{this.maxPrice}}" step="10" value="{{this.minPrice}}" (input) = "changeMinSlider($event.value)"></mat-slider>
-                  <br> 
-                  <mat-label class="label">Max Price</mat-label> 
-                  <br>
-                  <mat-slider min="{{this.minPrice}}" max="{{this.maxPrice}}" step="10" value="{{this.maxPrice}}" (input) = "changeMaxSlider($event.value)"></mat-slider>
-                  <br>
-                <mat-label >Number of rooms</mat-label>
-                <br>
-                <mat-button-toggle-group [value]="1"  *ngFor = "let n of numOfRooms">
+<mat-sidenav-container>
+  <mat-sidenav class="label" #sidenav mode="side" [opened]=false>
+    <h2>Flat</h2>
+    <mat-form-field>
+      <mat-label> Suburbs</mat-label>
+      <mat-select [(ngModel)]="this.selectedSuburb" (input)="changeSuburb()">
 
-                  
-                    <mat-button-toggle>
-                      <mat-radio-button (click) = "changeRooms(n)">
-                        {{n}}
-                      </mat-radio-button>
-                      
-                    </mat-button-toggle>
-                </mat-button-toggle-group>
-            
-          </mat-sidenav>
 
-   
-          <mat-sidenav-content>
-              <agm-map [latitude]="lat" [longitude]="lng">
-                  <div *ngFor="let property of this.displayProperties">
-                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [iconUrl]="'./assets/marker.svg'" [zIndex]="0">
-                      <agm-info-window>
-                        <p><b>{{property.address}}</b></p>
-                        <p>Suburb: {{property.suburb}} <br> Bedrooms: {{property.numBedrooms}}</p>
-                      </agm-info-window>
-                    </agm-marker>
-                  </div>
-                </agm-map>
-          </mat-sidenav-content>
-          
-</mat-sidenav-container> 
+        <mat-option *ngFor="let city of cities" (click)="print()" [value]="city">
+          {{city}}
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-label class="label">Min Price</mat-label>
+    <br>
+    <mat-slider min="{{this.minPrice}}" max="{{this.maxPrice}}" step="10" value="{{this.minPrice}}" (input)="changeMinSlider($event.value)"></mat-slider>
+    <br>
+    <mat-label>Max Price</mat-label>
+    <br>
+    <mat-slider min="{{this.minPrice}}" max="{{this.maxPrice+100}}" step="10" value="{{this.maxPrice}}" (input)="changeMaxSlider($event.value)"></mat-slider>
+    <br>
+    <mat-label>Number of rooms</mat-label>
+    <br>
+
+    <mat-button-toggle-group value="1" >
+      <mat-button-toggle value = "1">
+        <mat-radio-button checked = true (click)="changeRooms(1)">
+          1
+        </mat-radio-button>
+      </mat-button-toggle>
+      <mat-button-toggle value ="2">
+        <mat-radio-button  (click)="changeRooms(2)">
+          2
+        </mat-radio-button>
+      </mat-button-toggle>
+      <mat-button-toggle value ="3" >
+        <mat-radio-button (click)="changeRooms(3)">
+          3
+        </mat-radio-button>
+      </mat-button-toggle>
+      <mat-button-toggle value ="4">
+        <mat-radio-button  (click)="changeRooms(4)">
+          4
+        </mat-radio-button>
+      </mat-button-toggle>
+      <mat-button-toggle value ="5">
+        <mat-radio-button  (click)="changeRooms(5)">
+          5
+        </mat-radio-button>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <!-- <mat-button-toggle-group [value]="1" selected *ngFor="let n of numOfRooms"> -->
+
+    <!-- <div *ngIf="n == 1; else unselected"> -->
+    <!--  <mat-button-toggle selected >
+          <mat-radio-button selected  (click)="changeRooms(n)">
+            {{n}}
+          </mat-radio-button>
+        </mat-button-toggle> -->
+    <!--  </div> -->
+
+    <!--  <ng-template #unselected>
+          <mat-button-toggle>
+              <mat-radio-button (click)="changeRooms(n)">
+                {{n}}
+                </mat-radio-button>
+          </mat-button-toggle>
+        </ng-template>
+ -->
+
+
+
+   <!--  </mat-button-toggle-group> -->
+
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <div *ngFor="let property of this.displayProperties; let i = index">
+        <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [iconUrl]="'./assets/marker.svg'"
+          [zIndex]="i">
+          <agm-info-window>
+            <p>
+              <b>{{property.address}}</b>
+            </p>
+            <p>Suburb: {{property.suburb}}
+              <br> Price: {{property.price}} p/w
+              <br> Bedrooms: {{property.numBedrooms}}</p>
+          </agm-info-window>
+        </agm-marker>
+      </div>
+    </agm-map>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
