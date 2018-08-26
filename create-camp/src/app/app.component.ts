@@ -12,7 +12,7 @@ export class AppComponent {
   title: string = "app";
   maxPrice: number = 0;
   minPrice: number = 100000;
-
+  numOfRooms: number[]= [1,2,3,4,5]
   cities: string[] = [
     "lowry bay",
     "seatoun",
@@ -27,7 +27,9 @@ export class AppComponent {
     this.parseData();
   }
 
-  
+  onSwipe(event){
+    console.log("AAAA");
+  }
   selectedOption: string;
   lat: number = -41.2440266;
   lng: number = 174.6214276;

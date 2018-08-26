@@ -1,31 +1,48 @@
-<div>
-  <mat-select [(ngModel)]="selectedOption">
+<mat-toolbar>
+  <h1>
 
-    <!-- <select  [(ngModel)]="value"> </select> -->
-    <mat-option *ngFor="let city of cities">
-      {{city}}
-    </mat-option>
+  </h1>
+  <button (click)= "sidenav.toggle()"></button>
+</mat-toolbar>
+<mat-sidenav-container >
+          
+          <mat-sidenav #sidenav mode = "side" [opened]=true>
+             
+                  <h2>Flat</h2>
+                  <mat-label>Price</mat-label> 
+                  <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
+                
+               
+                <mat-label>Number of rooms</mat-label>
+                <mat-button-toggle-group *ngFor = "let n of numOfRooms">
+                  
+                    <mat-button-toggle>
+                      <mat-radio-button>
+                        {{n}}
+                      </mat-radio-button>
+                      
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            
+          </mat-sidenav>
 
-  </mat-select>
-</div>
-
-<!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington&zoom=13&size=600x300&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Clabel:C%7C40.718217,-73.998284
-&key=AIzaSyBvtefBfZIQCwJUiR6ZrWgxPfKxkxapeT8"/> -->
-
-<agm-map [latitude]="lat" [longitude]="lng">
-  <div *ngFor="let property of this.properties">
-    <!-- <agm-info-window [latitude]=property.latitude [longitude]=property.longitude [isOpen]=true>
-      <b>{{property.price}}</b>
-    </agm-info-window> -->
-    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [zIndex]="200">
-      <!-- <agm-marker-label> -->
-      <agm-info-window>
-        <p><b>{{property.address}}</b></p>
-        <p>Suburb: {{property.suburb}} <br> Bedrooms: {{property.numBedrooms}}</p>
-      </agm-info-window>
-    <!-- </agm-marker-label> -->
-    </agm-marker>
-  </div>
-</agm-map>
+   
+          <mat-sidenav-content>
+              <agm-map [latitude]="lat" [longitude]="lng">
+                  <div *ngFor="let property of this.properties">
+                    <!-- <agm-info-window [latitude]=property.latitude [longitude]=property.longitude [isOpen]=true>
+                      <b>{{property.price}}</b>
+                    </agm-info-window> -->
+                    <agm-marker [latitude]=property.latitude [longitude]=property.longitude [label]=property.price [zIndex]="200">
+                      <!-- <agm-marker-label> -->
+                      <agm-info-window>
+                        <p><b>{{property.address}}</b></p>
+                        <p>Suburb: {{property.suburb}} <br> Bedrooms: {{property.numBedrooms}}</p>
+                      </agm-info-window>
+                    <!-- </agm-marker-label> -->
+                    </agm-marker>
+                  </div>
+                </agm-map>
+          </mat-sidenav-content>
+          
+</mat-sidenav-container> 
