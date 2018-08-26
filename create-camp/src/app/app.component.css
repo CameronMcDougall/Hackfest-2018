@@ -7,7 +7,9 @@ agm-map {
    width: 100%;
    
  }
-
+.max{
+    position: absolute; text-align: right;
+}
  .mat-select {
 
  }
