@@ -12,6 +12,8 @@ export class AppComponent {
   title: string = "app";
   maxPrice: number = 0;
   minPrice: number = 100000;
+  displayMinPrice:number = 0;
+  displayMaxPrice:number = 500;
   numOfRooms: number[]= [1,2,3,4,5]
   amountOfRooms: number;
   price: number;
@@ -24,6 +26,21 @@ export class AppComponent {
     "lyall bay"
   ];
 
+  changeMinSlider(value){
+    this.displayMaxPrice = value;
+   
+
+  }
+  changeMaxSlider(value){
+
+    this.displayMaxPrice = value;
+   
+  }
+  changeRooms(value){
+
+    this.maxPrice = value;
+  
+  }
   constructor() {
     //console.log(data);
     this.parseData();
