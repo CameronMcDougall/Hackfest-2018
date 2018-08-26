@@ -37,7 +37,7 @@ export class AppComponent {
     this.findProperties();
   }
   print(){
-    console.log(this.selectedSuburb);
+    this.findProperties();
   }
 
   findProperties(){
